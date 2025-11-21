@@ -82,6 +82,15 @@ nav a {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    padding: 0.3em 0.5em;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    /* Smooth fade transition */
+}
+
+nav a:hover {
+    background-color: #DDDAD7;
+    /* Grey highlighting on hover */
 }
 
 /* Hero Section */
