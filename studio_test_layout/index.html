@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlitzPanel Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="global-header">
+        <div class="logo">
+            <a href="/">
+                <img src="../logo.svg" alt="BlitzPanel">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Capabilities</a></li>
+                <li><a href="#">Request Quote</a></li>
+                <li><a href="/studio_test_layout/">BlitzPanel Studio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="process-section">
+        <div class="studio-headline-container">
+            <h1 class="studio-headline">The simplest<br>way to get<br>your panels<br>made.</h1>
+            <div class="studio-faq-list-integrated">
+                <details>
+                    <summary>What is Blitzpanel Studio?</summary>
+                    <p>Blitzpanel Studio is an online tool for designing and sourcing industrial control panels. Think of it as CAD + sourcing + instant quoting in one place. No more juggling spreadsheets, catalogs, and emails.</p>
+                </details>
+                <details>
+                    <summary>Is this just software?</summary>
+                    <p>Blitzpanel Studio is an online tool for designing and sourcing industrial control panels. Think of it as CAD + sourcing + instant quoting in one place. No more juggling spreadsheets, catalogs, and emails.</p>
+                </details>
+                <details>
+                    <summary>Do I have to send my design to your factory?</summary>
+                    <p>No. You can use Blitzpanel purely as a design and sourcing tool i.e. create block diagrams, schematics, or panel layouts and generate your BOM. If you’re ready for production and don’t want to use our factory, you can export your design and send it to your preferred shop.</p>
+                </details>
+                <details>
+                    <summary>Can I use my own components?</summary>
+                    <p>Yes. Blitzpanel has its growing component library that’s closely coupled with our ERP, but you can also import your own parts or request that we add missing ones. Note: custom components will affect the end quote and estimated ship date.</p>
+                </details>
+                <details>
+                    <summary>How accurate are the quotes?</summary>
+                    <p>Quotes are instant and based on current component pricing, wiring, and panel build heuristics. For unusual parts or custom enclosures, we’ll flag items that need manual confirmation.</p>
+                </details>
+                <details>
+                    <summary>Do I need CAD experience?</summary>
+                    <p>Not necessarily. Blitzpanel is designed for electrical engineers and technicians, but the drag-and-drop layout and 3D viewer make it approachable even if you’ve never touched an ECAD tool.</p>
+                </details>
+                <details>
+                    <summary>Is Blitzpanel only for UL-508A shops?</summary>
+                    <p>No. The tool is useful for anyone designing control panels from OEM engineers to startups, but we’re building toward UL-compliant outputs so that shops can go straight to production without re-drawing.</p>
+                </details>
+                <details>
+                    <summary>Is my data private?</summary>
+                    <p>Yes. Your designs and BOMs remain private to your account unless you explicitly share them. We don’t sell design data.</p>
+                </details>
+            </div>
+        </div>
+        <div class="process-right-column">
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-anim">
+                        <img src="../panel_images/1.png" alt="Design Process" class="process-img">
+                    </div>
+                    <div class="process-text">
+                        <h3>1. DESIGN</h3>
+                        <p>Pick your parts from the library, drag and drop onto rails or backplates.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-anim">
+                        <img src="../panel_images/2.png" alt="Quote Process" class="process-img">
+                    </div>
+                    <div class="process-text">
+                        <h3>2. QUOTE</h3>
+                        <p>Get live cost estimates as you design; whether you're tweaking a BOM or planning a full build, we'll keep you under budget.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-anim">
+                        <img src="../panel_images/3.png" alt="Order Process" class="process-img">
+                    </div>
+                    <div class="process-text">
+                        <h3>3. ORDER</h3>
+                        <p>Receive an enclosure with rails, cutouts and wire ducts, or let us do the assembly and testing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-box">
+                <svg class="demo-component-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.25 78.329"><path d="M31.313,14.812c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M40.126,14.812c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M40.126,21.89c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M35.72,21.89c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M31.313,28.953c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M35.72,28.953c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M31.313,36.031c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M40.126,36.031c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M49.173,14.812c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M53.579,14.812c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M49.173,21.89c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M53.579,21.89c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M49.173,28.953c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M57.985,28.953c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M57.985,36.031c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M53.579,36.031c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.359.781.781.781Z"/><path d="M80.376,5.25h-3.75V.781c0-.438-.344-.781-.781-.781H4.656c-.438,0-.781.344-.781.781v4.469H.781c-.438,0-.781.344-.781.781v53.438c0,.438.344.781.781.781h4.094v4.719c0,.203.078.391.219.531l5.422,5.688v6.359c0,.438.344.781.781.781s.781-.344.781-.781v-6.234l8.891-5.469c.234-.141.375-.391.375-.672v-4.922h8.016v4.719c0,.203.078.391.219.531l5.422,5.688v6.359c0,.438.344.781.781.781s.781-.344.781-.781v-6.359l5.422-5.688c.141-.141.219-.344.219-.547v-4.719h5.047v4.719c0,.203.078.391.219.531l5.422,5.688v6.359c0,.438.344.781.781.781s.781-.344.781-.781v-6.359l5.422-5.688c.141-.141.219-.344.219-.531v-4.719h5.047v4.719c0,.203.078.391.219.531l5.422,5.688v6.359c0,.438.344.781.781.781s.781-.344.781-.781v-6.359l5.422-5.688c.141-.141.219-.344.219-.547v-4.719h2.484c.438,0,.781-.344.781-.781V6.032c-.094-.438-.438-.781-.875-.781h0ZM79.594,51.984h-16.297V6.812h16.312v45.172h-.015ZM27.563,51.984V6.812h16.297v45.172h-16.297ZM45.438,6.812h16.297v45.172h-16.297V6.812ZM5.438,1.562h69.625v3.688H5.438V1.562ZM4.657,6.812h21.344v45.172H1.563V6.812h3.094ZM1.563,53.546h24.453v5.141H1.563v-5.141ZM10.048,60.234h2.469v4.172l-1.234,3.875-1.234-3.875v-4.172ZM14.048,64.765c.031-.078.031-.156.031-.234v-4.297h2.047v4.406l-3.078,3.234,1-3.109ZM6.438,60.234h2.047v4.297c0,.078.016.156.031.234l.984,3.094-3.078-3.234v-4.391h.016ZM19.782,64.718l-3.766,2.312,1.469-1.547c.141-.141.219-.344.219-.531v-4.719h2.078v4.484ZM27.563,53.546h16.297v5.141h-16.297v-5.141ZM35.767,68.28l-1.234-3.875v-4.172h2.469v4.172l-1.234,3.875ZM30.907,60.233h2.047v4.297c0,.078.016.156.031.234l.984,3.094-3.078-3.234v-4.391h.016ZM40.61,64.639l-3.078,3.234.984-3.094c.031-.078.031-.156.031-.234v-4.297h2.047v4.391h.016ZM45.438,53.545h16.297v5.141h-16.297v-5.141ZM53.626,68.279l-1.234-3.875v-4.172h2.469v4.172l-1.234,3.875ZM48.766,60.232h2.047v4.297c0,.078.016.156.031.234l.984,3.094-3.078-3.234v-4.391h.016ZM58.47,64.639l-3.078,3.234.984-3.094c.031-.078.031-.156.031-.234v-4.297h2.047v4.391h.016ZM66.641,60.232h2.047v4.297c0,.078.016.156.031.234l.984,3.094-3.078-3.234v-4.391h.016ZM72.72,60.232v4.172l-1.234,3.875-1.234-3.875v-4.172h2.469ZM76.345,64.639l-3.078,3.234.984-3.094c.031-.078.031-.156.031-.234v-4.297h2.047v4.391h.016ZM63.298,58.67v-5.141h16.297v5.141h-16.297Z"/><path d="M75.079,13.094v.938c0,.438.344.781.781.781s.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.359-.781.781Z"/><path d="M71.454,14.812c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M75.86,19.39c-.438,0-.781.344-.781.781v.938c0,.438.344.781.781.781s.781-.344.781-.781v-.938c0-.438-.359-.781-.781-.781Z"/><path d="M71.454,21.89c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M67.048,28.953c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M67.048,36.031c.438,0,.781-.344.781-.781v-.938c0-.438-.344-.781-.781-.781s-.781.344-.781.781v.938c0,.438.344.781.781.781Z"/><path d="M75.86,33.531c-.438,0-.781.344-.781.781v.938c0,.438.344.781.781.781s.781-.344.781-.781v-.938c0-.438-.359-.781-.781-.781Z"/><path d="M40.688,43.437h-9.359c-.438,0-.781.344-.781.781s.344.781.781.781h9.359c.438,0,.781-.344.781-.781s-.344-.781-.781-.781Z"/><path d="M58.157,43.437h-9.359c-.438,0-.781.344-.781.781s.344.781.781.781h9.359c.438,0,.781-.344.781-.781s-.359-.781-.781-.781Z"/><path d="M75.829,43.437h-9.359c-.438,0-.781.344-.781.781s.344.781.781.781h9.359c.438,0,.781-.344.781-.781s-.344-.781-.781-.781Z"/><path d="M6.126,26.265h15.312c.438,0,.781-.344.781-.781v-13.766c0-.438-.344-.781-.781-.781H6.126c-.438,0-.781.344-.781.781v13.766c0,.438.344.781.781.781ZM6.907,24.703v-8.391h13.75v8.391H6.907ZM20.657,12.515v2.25H6.907v-2.25h13.75Z"/><path d="M13.673,34.437c-2.141,0-3.891,1.75-3.891,3.891s1.75,3.891,3.891,3.891,3.891-1.75,3.891-3.891-1.75-3.891-3.891-3.891ZM13.673,40.656c-1.281,0-2.328-1.047-2.328-2.328s1.047-2.328,2.328-2.328,2.328,1.047,2.328,2.328-1.047,2.328-2.328,2.328Z"/><path d="M8.235,40.437c.125.062.25.109.391.109s.266-.031.391-.109c.234-.141.391-.391.391-.672v-2.875c0-.281-.156-.531-.391-.672s-.531-.141-.781,0l-2.5,1.438c-.234.141-.391.391-.391.672s.156.531.391.672l2.5,1.438ZM7.844,38.234v.172l-.141-.078.141-.094Z"/><path d="M15.11,42.594h-2.875c-.281,0-.531.156-.672.391s-.141.547,0,.781l1.438,2.484c.141.234.391.391.672.391s.531-.156.672-.391l1.438-2.484c.141-.234.141-.547,0-.781s-.391-.391-.672-.391ZM13.672,44.313l-.078-.141h.172l-.094.141Z"/><path d="M15.11,34.047c.281,0,.531-.156.672-.391s.141-.547,0-.781l-1.438-2.5c-.281-.484-1.078-.484-1.359,0l-1.438,2.5c-.141.234-.141.547,0,.781s.391.391.672.391h2.891ZM13.672,32.344l.078.141h-.172l.094-.141Z"/><path d="M19.126,36.218c-.25-.141-.547-.141-.781,0s-.391.391-.391.672v2.875c0,.281.156.531.391.672.125.062.25.109.391.109s.266-.031.391-.109l2.484-1.438c.234-.141.391-.391.391-.672s-.156-.531-.391-.672l-2.484-1.438ZM19.516,38.406v-.172l.141.078-.141.094Z"/><path d="M12.688,19.39h-3.406c-.438,0-.781.344-.781.781s.344.781.781.781h3.406c.438,0,.781-.344.781-.781s-.344-.781-.781-.781Z"/></svg>
+                <div class="demo-box-content">
+                    <button class="demo-play-btn">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                    <span>WATCH DEMO</span>
+                </div>
+                <video id="demo-video" class="demo-video" controls style="display: none;">
+                    <source src="../demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- Section 1: Project Name -->
+                <section class="control-section">
+                    <div class="section-header">
+                        <span class="section-number">1.</span>
+                        <h3>PROJECT NAME</h3>
+                    </div>
+                    <input type="text" class="project-name-input" placeholder="Enter project name">
+                </section>
+
+                <!-- Section 2: Enclosure Size -->
+                <section class="control-section">
+                    <div class="section-header">
+                        <span class="section-number">2.</span>
+                        <h3>ENCLOSURE SIZE</h3>
+                    </div>
+                    <select class="enclosure-size-select">
+                        <option value="">Select size</option>
+                        <option value="16x16x6">16" x 16" x 6"</option>
+                        <option value="20x16x6">20" x 16" x 6"</option>
+                        <option value="20x20x6">20" x 20" x 6"</option>
+                        <option value="16x16x8">16" x 16" x 8"</option>
+                        <option value="20x16x8">20" x 16" x 8"</option>
+                        <option value="20x20x8">20" x 20" x 8"</option>
+                        <option value="24x20x8">24" x 20" x 8"</option>
+                        <option value="24x24x8">24" x 24" x 8"</option>
+                        <option value="30x24x8">30" x 24" x 8"</option>
+                        <option value="36x24x8">36" x 24" x 8"</option>
+                        <option value="24x20x10">24" x 20" x 10"</option>
+                        <option value="24x24x10">24" x 24" x 10"</option>
+                        <option value="30x24x10">30" x 24" x 10"</option>
+                        <option value="30x30x10">30" x 30" x 10"</option>
+                        <option value="36x24x10">36" x 24" x 10"</option>
+                        <option value="36x30x10">36" x 30" x 10"</option>
+                        <option value="48x36x10">48" x 36" x 10"</option>
+                        <option value="24x24x12">24" x 24" x 12"</option>
+                        <option value="30x24x12">30" x 24" x 12"</option>
+                        <option value="30x30x12">30" x 30" x 12"</option>
+                        <option value="36x24x12">36" x 24" x 12"</option>
+                        <option value="36x30x12">36" x 30" x 12"</option>
+                        <option value="36x36x12">36" x 36" x 12"</option>
+                        <option value="48x36x12">48" x 36" x 12"</option>
+                    </select>
+                </section>
+
+                <!-- Section 3: Choose Parts -->
+                <section class="control-section">
+                    <div class="section-header">
+                        <span class="section-number">3.</span>
+                        <h3>CHOOSE PARTS</h3>
+                    </div>
+                    
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        DIN Rails <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-35-1000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-35-2000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-15-1000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-15-2000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-G-1000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-G-2000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-AL-1000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-AL-2000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-CU-1000</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DR-CU-2000</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Wire Ducts <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-25x25</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-25x40</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-40x40</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-40x60</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-60x60</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-60x80</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-80x80</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-80x100</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-100x100</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>WD-SL-40x40</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Disconnects <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-30A-3P</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-60A-3P</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-100A-3P</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-30A-F</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-60A-F</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-32A-ISO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-63A-ISO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-AUX-1NO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-HDL-BLK</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>DS-HDL-RED</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Transformers <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-50VA-120/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-100VA-120/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-250VA-120/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-500VA-120/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-50VA-240/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-100VA-240/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-250VA-240/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-500VA-240/24</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-1KVA-480/120</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TR-DIN-MNT</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Power Supplies <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-24V-2.5A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-24V-5A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-24V-10A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-24V-20A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-24V-40A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-12V-5A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-12V-10A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-48V-5A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-48V-10A</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PS-UPS-24V</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Circuit Breakers <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.5/1</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.5/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.5/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.5/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.6/1</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1.6/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B1/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B10/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/1</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B12/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B13/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B15/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B16/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2.5/1</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B2/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/1</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/3</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/3N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B20/4</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B25/1-SP</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B25/1N</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B25/2</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>FAZ-B25/3</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Terminal Blocks <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-2.5-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-2.5-BL</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-2.5-PE</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-4.0-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-4.0-BL</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-4.0-PE</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-6.0-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-10.0-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-FUSE-5X20</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>TB-END-PLT</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Relays <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-12VDC-1CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-24VDC-1CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-24VDC-2CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-24VDC-4CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-120VAC-2CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-240VAC-2CO</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-SS-24VDC</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-TIME-MF</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-SAFETY-24V</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>RL-SOCK-SCREW</span>
+        </div>
+    </div>
+</details>
+<details class="parts-accordion" style="margin-bottom: 0.5rem;">
+    <summary class="parts-summary">
+        Switches & Buttons <span class="accordion-arrow" style="margin-left: auto;">▼</span>
+    </summary>
+    <div class="parts-list">
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PB-FL-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PB-FL-RED</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PB-FL-YEL</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PB-EXT-GR</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PB-EXT-RED</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>SEL-2POS-M</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>SEL-3POS-M</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>E-STOP-TWIST</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PL-LED-24V-G</span>
+        </div>
+        <div class="part-item">
+            <div class="part-checkbox"></div>
+            <span>PL-LED-24V-R</span>
+        </div>
+    </div>
+</details>
+
+                </section>
+
+                <!-- Section 4: Quote Level -->
+                <section class="control-section">
+                    <div class="section-header">
+                        <span class="section-number">4.</span>
+                        <h3>QUOTE LEVEL</h3>
+                    </div>
+                    
+                    <div class="quote-level-list">
+                        <button class="cam-btn quote-btn" style="width: 100%; margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.2em; line-height: 1;">□</span>
+                            Prepared Enclosure
+                        </button>
+                        <button class="cam-btn quote-btn" style="width: 100%; margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.2em; line-height: 1;">▨</span>
+                            Ready-to-Wire
+                        </button>
+                        <button class="cam-btn quote-btn active" style="width: 100%; margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.2em; line-height: 1;">▩</span>
+                            Full Assembly
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 5: Sign Up -->
+                <section class="control-section">
+                    <div class="section-header">
+                        <span class="section-number">5.</span>
+                        <h3>SIGN UP</h3>
+                    </div>
+                    
+                    <div class="signup-buttons">
+                        <button class="signup-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFAF7">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                        </button>
+                        <button class="signup-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFAF7">
+                                <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725zm-7-9.287l7 5.688 7-5.688v-2.688h-14v2.688z"/>
+                            </svg>
+                        </button>
+                        <button class="signup-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFAF7">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <main class="viewport">
+            <div class="viewport-toolbar">
+                <button class="toolbar-btn" title="Undo">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 7v6h6"></path>
+                        <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" title="Zoom">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <div class="toolbar-divider"></div>
+                <button class="toolbar-btn" title="List">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" title="Comments">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </button>
+                <div class="toolbar-divider"></div>
+                <button class="toolbar-btn" title="Toggle Grid">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" title="Home">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" title="Fullscreen">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                </button>
+                <div class="toolbar-divider"></div>
+                <button class="toolbar-btn" title="2D">2D</button>
+                <button class="toolbar-btn toolbar-btn-active" title="3D">3D</button>
+                <div class="toolbar-divider"></div>
+                <button class="toolbar-btn" title="Save">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                        <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div id="canvas-container">
+                <!-- Three.js canvas will be here -->
+            </div>
+            <div class="viewport-overlay" id="viewport-overlay" style="display: none;">
+                <h2>VIEWPORT EMPTY</h2>
+                <p>Drag & drop geometry to begin</p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script>
+        document.querySelector('.demo-box').addEventListener('click', function() {
+            const video = document.getElementById('demo-video');
+            const content = document.querySelector('.demo-box-content');
+            if (video.style.display === 'none') {
+                video.style.display = 'block';
+                content.style.display = 'none';
+                video.play();
+            } else {
+                video.pause();
+                video.style.display = 'none';
+                content.style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>
