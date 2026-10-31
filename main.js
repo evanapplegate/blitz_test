@@ -447,7 +447,7 @@ class AssemblyAnimation {
         this.camera.top = frustumSize / 2;
         this.camera.bottom = -frustumSize / 2;
 
-        this.camera.zoom = 1; // Reset zoom
+        this.camera.zoom = this.getZoom();
         this.camera.updateProjectionMatrix();
 
         this.controls.update();
@@ -588,6 +588,11 @@ class AssemblyAnimation {
         this.animationDuration = 4000; // 4 seconds
     }
 
+    getZoom() {
+        // Framing overflows the canvas by design, pull back so the whole model fits on phones
+        return window.innerWidth <= 768 ? 0.33 : 1;
+    }
+
     onWindowResize() {
         const container = document.getElementById('animation-container');
         if (!container) return;
@@ -597,13 +602,14 @@ class AssemblyAnimation {
         // Use actual container aspect ratio to prevent squishing
         const aspect = width / height;
 
-        const frustumSize = (this.camera.top - this.camera.bottom) / this.camera.zoom; // Preserve current scale
+        const frustumSize = this.camera.top - this.camera.bottom; // Preserve current scale
 
         this.camera.left = -frustumSize * aspect / 2;
         this.camera.right = frustumSize * aspect / 2;
         this.camera.top = frustumSize / 2;
         this.camera.bottom = -frustumSize / 2;
 
+        this.camera.zoom = this.getZoom();
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);
     }

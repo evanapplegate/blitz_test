@@ -437,6 +437,12 @@ details p {
         font-size: 2.5rem;
     }
 
+    #animation-container {
+        left: 50%;
+        height: 200vw;
+        /* Square canvas, so the model fits phone width and sits in the first screen */
+    }
+
     .nav-toggle {
         display: flex;
     }
