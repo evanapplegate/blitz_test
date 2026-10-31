@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'FoundryGridnik';
-    src: url('/fonts/FoundryGridnik-W01-Light.ttf') format('truetype');
+    src: url('../fonts/FoundryGridnik-W01-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
@@ -82,6 +82,31 @@ body {
 
 .global-header nav a:hover {
     background-color: #DDDAD7;
+}
+
+.nav-toggle {
+    display: none; /* Shown at mobile width */
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: -10px; /* 44px tap target without growing the header */
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.nav-toggle .icon-close {
+    display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-menu {
+    display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-close {
+    display: block;
 }
 
 /* Process Section */
@@ -618,4 +643,86 @@ canvas {
     outline: none;
     width: 100%;
     height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .process-section {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .studio-headline-container {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .studio-faq-list-integrated {
+        margin-top: 2rem;
+        padding-right: 0;
+    }
+
+    .process-right-column > .demo-box {
+        margin-top: 0;
+    }
+
+    .app-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .viewport {
+        flex-grow: 0;
+        height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .studio-headline {
+        font-size: 2.5rem;
+    }
+
+    .viewport-toolbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .global-header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .global-header nav.open {
+        display: block;
+    }
+
+    .global-header nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .global-header nav a {
+        display: block;
+        padding: 1rem calc(2rem + 5vw);
+    }
 }

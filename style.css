@@ -93,6 +93,33 @@ nav a:hover {
     /* Grey highlighting on hover */
 }
 
+.nav-toggle {
+    display: none;
+    /* Shown at mobile width */
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: -10px;
+    /* 44px tap target without growing the header */
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.nav-toggle .icon-close {
+    display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-menu {
+    display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+}
+
 /* Hero Section */
 #hero {
     display: grid;
@@ -103,6 +130,8 @@ nav a:hover {
     border-bottom: 1px solid var(--color-border);
     position: relative;
     /* Container for absolute positioned animation */
+    overflow-x: clip;
+    /* Cut off bleed past viewport edge, keep top bleed over header border */
     margin-top: 0;
     /* Ensure no gap above */
     padding: 0 5vw;
@@ -408,13 +437,32 @@ details p {
         font-size: 2.5rem;
     }
 
-    header {
-        flex-direction: column;
-        gap: 1rem;
+    .nav-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    nav.open {
+        display: block;
     }
 
     nav ul {
-        gap: 1rem;
-        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem calc(2rem + 5vw);
     }
 }

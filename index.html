@@ -21,7 +21,11 @@
         <div class="logo">
             <img src="logo.svg" alt="BlitzPanel">
         </div>
-        <nav>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+            <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h20M2 12h20M2 18h20"/></svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg>
+        </button>
+        <nav id="site-nav">
             <ul>
                 <li><a href="#">Capabilities</a></li>
                 <li><a href="#">Request Quote</a></li>
@@ -138,6 +142,7 @@
         </section>
     </main>
 
+    <script src="nav.js"></script>
     <script type="module" src="./main.js"></script>
 </body>
 
